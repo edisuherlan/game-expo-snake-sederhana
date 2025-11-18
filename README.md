@@ -1,50 +1,115 @@
-# Welcome to your Expo app 👋
+# 🐍 Game Snake - Expo & React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Game Snake sederhana yang dibuat dengan Expo dan React Native, cocok untuk pemula yang ingin belajar membuat game mobile.
 
-## Get started
+## 🎮 Tentang Game
 
-1. Install dependencies
+Game Snake klasik dengan kontrol swipe atau tombol panah. Makan makanan merah untuk menambah skor dan panjang ular. Hindari menabrak dinding atau tubuh sendiri!
 
+## 🚀 Quick Start
+
+### Instalasi Cepat
+
+1. **Install dependensi:**
    ```bash
    npm install
    ```
 
-2. Start the app
-
+2. **Jalankan aplikasi:**
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+3. **Pilih platform:**
+   - Tekan `w` untuk web browser
+   - Tekan `a` untuk Android emulator
+   - Tekan `i` untuk iOS simulator
+   - Scan QR code dengan Expo Go di smartphone
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### Menjalankan di Platform Spesifik
 
 ```bash
-npm run reset-project
+# Web browser
+npm run web
+
+# Android emulator
+npm run android
+
+# iOS simulator (macOS saja)
+npm run ios
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 📚 Dokumentasi Lengkap
 
-## Learn more
+- **[PANDUAN_INSTALASI.md](./PANDUAN_INSTALASI.md)** - Panduan instalasi lengkap dari awal
+- **[GAME_TUTORIAL.md](./GAME_TUTORIAL.md)** - Tutorial belajar konsep-konsep yang digunakan
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🎯 Fitur
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- ✅ Kontrol swipe gesture
+- ✅ Tombol kontrol arah
+- ✅ Sistem skor
+- ✅ Deteksi tabrakan
+- ✅ Game over & restart
+- ✅ UI yang menarik
+- ✅ Mendukung Android, iOS, dan Web
 
-## Join the community
+## 🛠️ Teknologi yang Digunakan
 
-Join our community of developers creating universal apps.
+- **Expo SDK 54** - Framework untuk React Native
+- **React Native** - Framework mobile development
+- **TypeScript** - Type-safe JavaScript
+- **React Hooks** - useState, useEffect, useRef
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 📖 Belajar Lebih Lanjut
+
+### Konsep yang Dipelajari
+
+1. **State Management** - Mengelola state dengan useState
+2. **Game Loop** - Membuat game loop dengan useEffect
+3. **Touch Handling** - Menangani gesture dengan PanResponder
+4. **Array Manipulation** - Mengelola posisi ular
+5. **Conditional Rendering** - Menampilkan UI berdasarkan kondisi
+
+### File Penting
+
+- `components/snake-game.tsx` - Komponen utama game Snake
+- `app/(tabs)/index.tsx` - Halaman utama aplikasi
+- `GAME_TUTORIAL.md` - Penjelasan konsep-konsep yang digunakan
+
+## 🐛 Troubleshooting
+
+Jika mengalami masalah, lihat bagian **Troubleshooting** di [PANDUAN_INSTALASI.md](./PANDUAN_INSTALASI.md)
+
+## 📝 Scripts Tersedia
+
+```bash
+npm start          # Menjalankan development server
+npm run android    # Menjalankan di Android emulator
+npm run ios        # Menjalankan di iOS simulator
+npm run web        # Menjalankan di web browser
+npm run lint       # Menjalankan linter
+```
+
+## 🚀 Ide Pengembangan
+
+- [ ] Tingkat kesulitan (level system)
+- [ ] Skor tertinggi (high score dengan AsyncStorage)
+- [ ] Peningkatan kekuatan (power-ups)
+- [ ] Mode multi pemain
+- [ ] Animasi halus
+- [ ] Efek suara
+- [ ] Fitur jeda (pause)
+- [ ] Rintangan di arena
+
+## 📄 Lisensi
+
+Proyek ini dibuat untuk tujuan edukasi dan pembelajaran.
+
+## 🤝 Kontribusi
+
+Silakan fork, modifikasi, dan kembangkan sesuai kebutuhan Anda!
+
+---
+
+**Selamat Bermain dan Belajar! 🎉**
