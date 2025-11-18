@@ -216,6 +216,215 @@ npm run ios      # iOS simulator (macOS)
 - `app/(tabs)/index.tsx` - Halaman utama aplikasi
 - `GAME_TUTORIAL.md` - Penjelasan konsep-konsep yang digunakan
 
+## 📁 Struktur File dan Halaman
+
+### Struktur Folder Project
+
+```
+game/
+├── app/                    # Folder routing aplikasi (Expo Router)
+│   ├── _layout.tsx        # Layout utama aplikasi
+│   ├── (tabs)/            # Folder untuk tab navigation
+│   │   ├── _layout.tsx   # Layout untuk tab navigation
+│   │   ├── index.tsx     # Halaman Home (menampilkan game Snake)
+│   │   └── explore.tsx   # Halaman Explore (tidak digunakan untuk game)
+│   └── modal.tsx         # Halaman modal (tidak digunakan untuk game)
+├── components/            # Komponen React yang dapat digunakan kembali
+│   ├── snake-game.tsx    # ⭐ Komponen utama game Snake
+│   ├── themed-text.tsx   # Komponen teks dengan tema
+│   ├── themed-view.tsx   # Komponen view dengan tema
+│   └── ui/               # Komponen UI tambahan
+├── assets/               # File aset (gambar, icon, dll)
+│   └── images/          # Gambar dan icon aplikasi
+├── constants/           # Konstanta dan konfigurasi
+│   └── theme.ts         # Konfigurasi tema aplikasi
+├── hooks/               # Custom React hooks
+│   ├── use-color-scheme.ts    # Hook untuk deteksi tema (dark/light)
+│   └── use-theme-color.ts     # Hook untuk mendapatkan warna tema
+├── scripts/             # Script utilitas
+│   └── reset-project.js # Script untuk reset project
+├── app.json             # Konfigurasi Expo
+├── package.json         # Dependencies dan scripts npm
+├── tsconfig.json        # Konfigurasi TypeScript
+└── README.md            # Dokumentasi utama
+```
+
+### File-File Penting untuk Game Snake
+
+#### 🎮 File Game (Core)
+
+**`components/snake-game.tsx`** ⭐ **FILE UTAMA GAME**
+- **Fungsi:** Komponen utama yang berisi seluruh logika game Snake
+- **Fitur:**
+  - State management untuk ular, makanan, skor, dan status game
+  - Game loop menggunakan `useEffect` dan `setInterval`
+  - Touch handling dengan `PanResponder` untuk swipe gesture
+  - Collision detection (tabrakan dengan dinding dan tubuh sendiri)
+  - Render grid dan UI game
+- **Teknologi:** React Hooks (useState, useEffect, useRef), PanResponder
+- **Baris kode:** ~400 baris
+
+#### 📱 File Halaman (Pages)
+
+**`app/_layout.tsx`** - **Root Layout**
+- **Fungsi:** Layout utama aplikasi yang membungkus semua halaman
+- **Fitur:**
+  - Mengatur tema aplikasi (dark/light mode)
+  - Mengatur Stack navigation
+  - Menampilkan StatusBar
+- **Teknologi:** Expo Router, React Navigation
+
+**`app/(tabs)/_layout.tsx`** - **Tab Layout**
+- **Fungsi:** Mengatur tab navigation di bagian bawah layar
+- **Fitur:**
+  - Mengatur tab Home dan Explore
+  - Mengatur icon dan warna tab
+- **Teknologi:** Expo Router Tabs
+
+**`app/(tabs)/index.tsx`** ⭐ **HALAMAN UTAMA (Home)**
+- **Fungsi:** Halaman utama yang menampilkan game Snake
+- **Fitur:**
+  - Mengimport dan menampilkan komponen `SnakeGame`
+  - Mengatur container untuk game
+- **Baris kode:** ~17 baris
+- **Route:** `/` atau tab "Home"
+
+**`app/(tabs)/explore.tsx`** - **Halaman Explore**
+- **Fungsi:** Halaman kedua di tab navigation (tidak digunakan untuk game)
+- **Status:** File default dari template Expo, bisa dihapus atau diubah
+
+**`app/modal.tsx`** - **Halaman Modal**
+- **Fungsi:** Halaman modal (tidak digunakan untuk game)
+- **Status:** File default dari template Expo, bisa dihapus atau diubah
+
+#### ⚙️ File Konfigurasi
+
+**`app.json`** - **Konfigurasi Expo**
+- **Fungsi:** Konfigurasi aplikasi Expo
+- **Isi:**
+  - Nama aplikasi: "game"
+  - Versi: "1.0.0"
+  - Icon dan splash screen
+  - Konfigurasi untuk iOS, Android, dan Web
+  - Plugin Expo yang digunakan
+
+**`package.json`** - **Dependencies**
+- **Fungsi:** Mendefinisikan dependencies dan scripts npm
+- **Isi:**
+  - Dependencies utama: expo, react, react-native
+  - Dependencies game: react-native-gesture-handler, react-native-reanimated
+  - Scripts: start, android, ios, web, lint
+
+**`tsconfig.json`** - **Konfigurasi TypeScript**
+- **Fungsi:** Konfigurasi compiler TypeScript
+- **Isi:**
+  - Path alias (`@/*` untuk root directory)
+  - Strict mode enabled
+  - Include patterns untuk file TypeScript
+
+#### 🎨 File Komponen Pendukung
+
+**`components/themed-text.tsx`** - **Komponen Teks Bertema**
+- **Fungsi:** Komponen Text yang otomatis menyesuaikan tema
+- **Penggunaan:** Digunakan untuk teks yang mendukung dark/light mode
+
+**`components/themed-view.tsx`** - **Komponen View Bertema**
+- **Fungsi:** Komponen View yang otomatis menyesuaikan tema
+- **Penggunaan:** Digunakan untuk container yang mendukung dark/light mode
+
+**`constants/theme.ts`** - **Konfigurasi Tema**
+- **Fungsi:** Mendefinisikan warna dan tema aplikasi
+- **Isi:** Warna untuk light mode dan dark mode
+
+**`hooks/use-color-scheme.ts`** - **Hook Tema**
+- **Fungsi:** Hook untuk mendeteksi tema sistem (dark/light)
+- **Penggunaan:** Digunakan di layout untuk mengatur tema
+
+#### 📚 File Dokumentasi
+
+**`README.md`** ⭐ - **Dokumentasi Utama**
+- **Fungsi:** Dokumentasi lengkap project
+- **Isi:** Instalasi, penggunaan, troubleshooting
+
+**`PANDUAN_INSTALASI.md`** - **Panduan Instalasi Lengkap**
+- **Fungsi:** Panduan step-by-step instalasi dari awal
+- **Isi:** Instalasi Node.js, Expo CLI, dependencies, dll
+
+**`GAME_TUTORIAL.md`** - **Tutorial Belajar**
+- **Fungsi:** Penjelasan konsep-konsep yang digunakan dalam game
+- **Isi:** State management, game loop, touch handling, dll
+
+**`DOCUMENTATION.md`** - **Indeks Dokumentasi**
+- **Fungsi:** Peta navigasi untuk semua dokumentasi
+- **Isi:** Link ke semua file dokumentasi
+
+### Halaman yang Digunakan dalam Game
+
+#### 1. **Halaman Home** (`/` atau tab "Home")
+- **File:** `app/(tabs)/index.tsx`
+- **Fungsi:** Menampilkan game Snake
+- **Komponen:** Menggunakan `SnakeGame` dari `components/snake-game.tsx`
+- **Akses:** Tab pertama di aplikasi atau route `/`
+
+#### 2. **Halaman Explore** (`/explore`)
+- **File:** `app/(tabs)/explore.tsx`
+- **Fungsi:** Halaman kedua di tab navigation
+- **Status:** Tidak digunakan untuk game (file default template)
+
+### Alur Aplikasi
+
+```
+1. Aplikasi dimulai
+   ↓
+2. app/_layout.tsx (Root Layout)
+   - Mengatur tema
+   - Mengatur Stack navigation
+   ↓
+3. app/(tabs)/_layout.tsx (Tab Layout)
+   - Mengatur tab navigation
+   ↓
+4. app/(tabs)/index.tsx (Halaman Home)
+   - Menampilkan komponen SnakeGame
+   ↓
+5. components/snake-game.tsx
+   - Render game Snake
+   - Handle game logic
+   - Handle user input
+```
+
+### File yang Wajib untuk Game Snake
+
+**Minimal yang diperlukan:**
+1. ✅ `components/snake-game.tsx` - Komponen game
+2. ✅ `app/(tabs)/index.tsx` - Halaman yang menampilkan game
+3. ✅ `app/_layout.tsx` - Root layout
+4. ✅ `app/(tabs)/_layout.tsx` - Tab layout
+5. ✅ `package.json` - Dependencies
+6. ✅ `app.json` - Konfigurasi Expo
+
+**File pendukung (opsional tapi disarankan):**
+- `constants/theme.ts` - Untuk tema
+- `hooks/use-color-scheme.ts` - Untuk dark/light mode
+- `components/themed-*.tsx` - Untuk komponen bertema
+
+### Cara File Bekerja Bersama
+
+1. **Routing:** Expo Router menggunakan struktur folder `app/` untuk routing
+   - `app/(tabs)/index.tsx` → Route `/` atau tab "Home"
+   - `app/(tabs)/explore.tsx` → Route `/explore` atau tab "Explore"
+
+2. **Komponen:** File di folder `components/` adalah komponen yang bisa digunakan di mana saja
+   - `SnakeGame` diimport di `index.tsx` untuk ditampilkan
+
+3. **State Management:** Game menggunakan React Hooks
+   - `useState` untuk state game
+   - `useEffect` untuk game loop
+   - `useRef` untuk menyimpan nilai yang tidak trigger re-render
+
+4. **Styling:** Menggunakan StyleSheet dari React Native
+   - Setiap komponen memiliki styles sendiri
+   - Bisa menggunakan tema dari `constants/theme.ts`
+
 ## 🐛 Troubleshooting
 
 ### Masalah Umum
